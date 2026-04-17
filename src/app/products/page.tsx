@@ -58,8 +58,7 @@ export default function ProductsPage() {
     await addDoc(collection(db, 'products'), {
       name,
       price: Number(price),
-      userId: auth.currentUser?.uid,
-      createdAt: new Date()
+      userId: auth.currentUser?.uid
     })
 
     setName('')
@@ -87,11 +86,10 @@ export default function ProductsPage() {
   if (loading) return <p>Loading...</p>
 
   return (
-    <div className="text-black">
+    <div>
       <h1 className="text-2xl font-bold mb-6">Produk</h1>
 
-      {/* FORM */}
-      <div className="bg-white border p-4 rounded-xl shadow mb-6 flex flex-col md:flex-row gap-3">
+      <div className="bg-white border border-gray-200 p-4 rounded-xl shadow-sm mb-6 flex flex-col md:flex-row gap-3">
         <input
           type="text"
           placeholder="Nama Produk"
@@ -112,24 +110,23 @@ export default function ProductsPage() {
           onClick={() =>
             editingId ? handleUpdate(editingId) : handleAddProduct()
           }
-          className="bg-blue-600 text-white px-4 py-2 rounded"
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg"
         >
           {editingId ? 'Update' : 'Tambah'}
         </button>
       </div>
 
-      {/* LIST */}
       <div className="grid md:grid-cols-2 gap-4">
         {products.map((product) => (
           <div
             key={product.id}
-            className="bg-white border p-4 rounded-xl shadow flex justify-between items-center"
+            className="bg-white border border-gray-200 p-4 rounded-xl shadow-sm flex justify-between items-center"
           >
             <div>
               <h2 className="font-semibold text-lg">
                 {product.name}
               </h2>
-              <p className="text-gray-700">
+              <p className="text-gray-600">
                 Rp {product.price}
               </p>
             </div>
@@ -141,14 +138,14 @@ export default function ProductsPage() {
                   setName(product.name)
                   setPrice(product.price.toString())
                 }}
-                className="bg-yellow-400 text-white px-3 py-1 rounded"
+                className="bg-yellow-400 text-white px-3 py-1 rounded-lg"
               >
                 Edit
               </button>
 
               <button
                 onClick={() => handleDelete(product.id)}
-                className="bg-red-500 text-white px-3 py-1 rounded"
+                className="bg-red-500 text-white px-3 py-1 rounded-lg"
               >
                 Hapus
               </button>

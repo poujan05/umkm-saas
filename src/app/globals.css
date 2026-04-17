@@ -2,17 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 🔥 FORCE LIGHT MODE GLOBAL */
-html {
-  background-color: white;
+/* 🔥 BASE UI SYSTEM */
+html, body {
+  background-color: #f9fafb;
+  color: #111827;
 }
 
+/* smooth font */
 body {
-  background-color: white;
-  color: black;
-}
-
-/* Biar semua text default kebaca */
-* {
-  color: inherit;
+  font-family: sans-serif;
 }
