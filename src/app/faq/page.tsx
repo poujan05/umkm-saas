@@ -21,14 +21,14 @@ export default function FAQPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <div>
+    <div className="text-black">
       <h1 className="text-2xl font-bold mb-6">FAQ</h1>
 
       <div className="space-y-4">
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="border rounded-2xl p-4 bg-white shadow"
+            className="bg-white border rounded-xl p-4 shadow"
           >
             <button
               className="w-full text-left font-semibold"

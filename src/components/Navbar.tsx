@@ -7,27 +7,19 @@ export default function Navbar() {
   const { user } = useAuth()
 
   return (
-    <nav className="flex justify-between items-center px-6 py-4 bg-white text-black shadow">
-      <h1 className="font-bold text-lg text-blue-600">
+    <nav className="bg-white border-b px-6 py-4 flex justify-between items-center">
+      <h1 className="font-bold text-blue-600">
         UMKM SaaS
       </h1>
 
       <div className="flex gap-6 items-center">
-        <Link href="/" className="hover:text-blue-600">
-          Home
-        </Link>
-        <Link href="/dashboard" className="hover:text-blue-600">
-          Dashboard
-        </Link>
-        <Link href="/products" className="hover:text-blue-600">
-          Produk
-        </Link>
-        <Link href="/faq" className="hover:text-blue-600">
-          FAQ
-        </Link>
+        <Link href="/">Home</Link>
+        <Link href="/dashboard">Dashboard</Link>
+        <Link href="/products">Produk</Link>
+        <Link href="/faq">FAQ</Link>
 
         {user && (
-          <span className="text-sm text-gray-500">
+          <span className="text-sm text-gray-600">
             {user.email}
           </span>
         )}
